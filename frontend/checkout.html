@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Alin Gold</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header><div class="container topbar"><a class="logo" href="index.html">ALIN GOLD</a><nav><a href="index.html">Home</a><a href="catalog.html">Catalog</a><a href="despre.html">Despre</a><a href="contact.html">Contact</a><a href="cos.html">Cos</a><a href="checkout.html" aria-current="page">Checkout</a></nav></div></header>
+    <main class="container section checkout-layout">
+      <div>
+        <h1>Checkout</h1>
+        <p class="page-intro">Completeaza datele pentru finalizarea comenzii.</p>
+        <form id="checkout-form" class="card form-card">
+          <h3>Date client</h3>
+          <div class="form-grid">
+            <label>Prenume
+              <input name="firstName" type="text" required />
+            </label>
+            <label>Nume
+              <input name="lastName" type="text" required />
+            </label>
+            <label>Email
+              <input name="email" type="email" required />
+            </label>
+            <label>Telefon
+              <input name="phone" type="tel" required />
+            </label>
+          </div>
+          <h3>Adresa livrare</h3>
+          <div class="form-grid">
+            <label>Oras
+              <input name="city" type="text" required />
+            </label>
+            <label>Strada
+              <input name="street" type="text" required />
+            </label>
+            <label>Numar
+              <input name="streetNumber" type="text" required />
+            </label>
+            <label>Cod postal
+              <input name="postalCode" type="text" />
+            </label>
+          </div>
+          <h3>Plata</h3>
+          <div class="payment-options">
+            <label><input type="radio" name="paymentMethod" value="cash" required /> Cash la livrare</label>
+            <label><input type="radio" name="paymentMethod" value="card" /> Card la livrare</label>
+            <label><input type="radio" name="paymentMethod" value="transfer" /> Transfer bancar</label>
+          </div>
+          <label>Observatii
+            <textarea name="notes" rows="3" placeholder="Detalii suplimentare pentru livrare"></textarea>
+          </label>
+          <p id="checkout-error" class="form-error" aria-live="polite"></p>
+          <button class="btn" id="checkout-submit" type="submit">Trimite comanda</button>
+        </form>
+      </div>
+      <aside class="card summary-card">
+        <h3>Recapitulare</h3>
+        <div id="checkout-items" class="stack compact"></div>
+        <div class="summary-row"><span>Subtotal</span><strong id="checkout-subtotal">0 MDL</strong></div>
+        <div class="summary-row"><span>Livrare</span><strong id="checkout-shipping">0 MDL</strong></div>
+        <div class="summary-row total"><span>Total</span><strong id="checkout-total">0 MDL</strong></div>
+      </aside>
+    </main>
+    <footer><div class="container topbar"><small>© <span data-year></span> Alin Gold</small><nav><a href="termeni.html">Termeni</a><a href="confidentialitate.html">Confidentialitate</a><a href="retur.html">Retur</a></nav></div></footer>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

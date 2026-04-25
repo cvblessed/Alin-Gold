@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Alin Gold</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header><div class="container topbar"><a class="logo" href="index.html">ALIN GOLD</a><nav><a href="index.html">Home</a><a href="catalog.html">Catalog</a><a href="despre.html">Despre</a><a href="contact.html" aria-current="page">Contact</a><a href="cos.html">Cos</a></nav></div></header>
+    <main class="container section contact-layout">
+      <section class="card contact-info">
+        <h1>Contact</h1>
+        <p>Email: contact@alingold.md</p>
+        <p>Telefon: +373 XX XXX XXX</p>
+        <p>Adresa showroom: Chisinau, Moldova</p>
+        <p>Program: Luni - Sambata, 10:00 - 19:00</p>
+      </section>
+      <section class="card">
+        <h2>Trimite-ne un mesaj</h2>
+        <form id="contact-form" class="form-card">
+          <div class="form-grid">
+            <label>Prenume
+              <input type="text" name="firstName" required />
+            </label>
+            <label>Nume
+              <input type="text" name="lastName" required />
+            </label>
+            <label>Email
+              <input type="email" name="email" required />
+            </label>
+            <label>Telefon
+              <input type="tel" name="phone" required />
+            </label>
+          </div>
+          <label>Mesaj
+            <textarea name="message" rows="4" required placeholder="Scrie aici intrebarea sau cererea ta"></textarea>
+          </label>
+          <p id="contact-form-message" class="form-error" aria-live="polite"></p>
+          <button class="btn" type="submit">Trimite mesaj</button>
+        </form>
+      </section>
+    </main>
+    <footer><div class="container topbar"><small>© <span data-year></span> Alin Gold</small><nav><a href="termeni.html">Termeni</a><a href="confidentialitate.html">Confidentialitate</a><a href="retur.html">Retur</a></nav></div></footer>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
