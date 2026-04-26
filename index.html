@@ -3,137 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alin Gold - Home</title>
+    <title>Alin Gold – Bijuterii premium din Chișinău</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
     <header>
       <div class="container topbar">
         <a class="logo" href="index.html">ALIN GOLD</a>
-        <nav>
-          <a href="index.html" aria-current="page">Home</a>
-          <a href="catalog.html">Catalog</a>
-          <a href="despre.html">Despre</a>
-          <a href="contact.html">Contact</a>
-        </nav>
+        <div class="nav-area" id="nav-area">
+          <nav>
+            <a href="index.html" aria-current="page" data-i18n="nav.home">Acasă</a>
+            <a href="catalog.html" data-i18n="nav.catalog">Catalog</a>
+            <a href="despre.html" data-i18n="nav.about">Despre</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          </nav>
+          <div class="lang-switch">
+            <button class="lang-btn active" data-lang="ro">RO</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Meniu" aria-expanded="false">&#9776;</button>
       </div>
     </header>
+
     <main class="container">
       <section class="hero">
-        <h1>Bijuterii elegante pentru momente speciale</h1>
-        <p>Descopera colectii premium inspirate din cele mai elegante tendinte.</p>
-        <a class="btn" href="catalog.html">Vezi catalogul</a>
-        <img class="site-image hero-image" src="photos/wow2.jpg" alt="Colectie moderna de bijuterii Alin Gold" loading="eager" fetchpriority="high" />
+        <h1 data-i18n="hero.title">Bijuterii elegante pentru momente speciale</h1>
+        <p data-i18n="hero.desc">Descoperiți colecții premium inspirate din cele mai rafinate tendințe.</p>
+        <a class="btn" href="catalog.html" data-i18n="hero.cta">Explorați catalogul</a>
+        <img class="site-image hero-image" src="photos/wow2.jpg" alt="Colecție modernă de bijuterii Alin Gold" loading="eager" fetchpriority="high" />
       </section>
 
       <section class="section">
-        <h2>Best Sellers</h2>
+        <h2 data-i18n="bs.title">Cele mai căutate</h2>
         <div class="grid">
           <article class="card">
-            <h3>Inel Promise</h3>
-            <img class="site-image" src="photos/goldring.jpg" alt="Inel Promise" loading="lazy" />
-            <p>Model popular pentru logodna si aniversari.</p>
+            <h3 data-i18n="bs.p1.name">Inel din Aur</h3>
+            <img class="site-image" src="photos/goldring.jpg" alt="Inel din Aur" loading="lazy" />
+            <p data-i18n="bs.p1.desc">Model popular pentru logodnă și aniversări.</p>
           </article>
           <article class="card">
-            <h3>Lant Signature</h3>
-            <img class="site-image" src="photos/goldcross.jpg" alt="Lant Signature" loading="lazy" />
-            <p>Design fin, purtare zilnica sau ocazii speciale.</p>
+            <h3 data-i18n="bs.p2.name">Cruce din Aur</h3>
+            <img class="site-image" src="photos/goldcross.jpg" alt="Cruce din Aur" loading="lazy" />
+            <p data-i18n="bs.p2.desc">Design fin, purtare zilnică sau ocazii speciale.</p>
           </article>
           <article class="card">
-            <h3>Cercei Royal</h3>
-            <img class="site-image" src="photos/cercei.jpg" alt="Cercei Royal" loading="lazy" />
-            <p>Stil premium inspirat din colectiile luxury.</p>
+            <h3 data-i18n="bs.p3.name">Cercei din Aur</h3>
+            <img class="site-image" src="photos/cercei.jpg" alt="Cercei din Aur" loading="lazy" />
+            <p data-i18n="bs.p3.desc">Stil premium inspirat din colecțiile luxury.</p>
           </article>
         </div>
       </section>
 
       <section class="section">
-        <h2>Colectii populare</h2>
+        <h2 data-i18n="col.title">Colecții populare</h2>
         <div class="grid">
           <article class="card">
-            <h3>Logodna</h3>
-            <p>Piese dedicate momentelor importante.</p>
-            <a class="btn" href="catalog.html">Vezi colectia</a>
+            <h3 data-i18n="col.1.title">Logodnă</h3>
+            <p data-i18n="col.1.desc">Piese dedicate momentelor importante.</p>
+            <a class="btn" href="catalog.html" data-i18n="col.1.cta">Vezi colecția</a>
           </article>
           <article class="card">
-            <h3>Cadouri</h3>
-            <p>Idei premium pentru aniversari si sarbatori.</p>
-            <a class="btn" href="catalog.html">Vezi colectia</a>
+            <h3 data-i18n="col.2.title">Cadouri</h3>
+            <p data-i18n="col.2.desc">Idei premium pentru aniversări și sărbători.</p>
+            <a class="btn" href="catalog.html" data-i18n="col.2.cta">Vezi colecția</a>
           </article>
           <article class="card">
-            <h3>Everyday Luxury</h3>
-            <p>Bijuterii rafinate pentru purtare zilnica.</p>
-            <a class="btn" href="catalog.html">Vezi colectia</a>
+            <h3 data-i18n="col.3.title">Zi cu zi</h3>
+            <p data-i18n="col.3.desc">Bijuterii rafinate pentru purtare zilnică.</p>
+            <a class="btn" href="catalog.html" data-i18n="col.3.cta">Vezi colecția</a>
           </article>
         </div>
       </section>
 
       <section class="section">
-        <h2>De ce ne aleg clientii</h2>
+        <h2 data-i18n="why.title">De ce ne aleg clienții</h2>
         <ul class="services">
-          <li>Certificat autenticitate pentru fiecare produs</li>
-          <li>Ambalaj premium pregatit pentru cadou</li>
-          <li>Livrare rapida in Moldova</li>
-          <li>Suport personalizat in alegerea marimii</li>
+          <li data-i18n="why.1">Certificat de autenticitate pentru fiecare produs</li>
+          <li data-i18n="why.2">Ambalaj premium pregătit pentru cadou</li>
+          <li data-i18n="why.3">Consultanță personalizată la showroom</li>
+          <li data-i18n="why.4">Suport în alegerea dimensiunii potrivite</li>
         </ul>
       </section>
 
       <section class="section">
-        <h2>Testimoniale</h2>
+        <h2 data-i18n="test.title">Ce spun clienții</h2>
         <div class="grid">
           <article class="card">
-            <p class="quote">"Calitate excelenta si livrare foarte rapida. Recomand."</p>
-            <small>- Client Alin Gold</small>
+            <p class="quote" data-i18n="test.1.text">„Calitate excelentă și personal foarte amabil. Recomand cu încredere."</p>
+            <small data-i18n="test.1.author">– Client Alin Gold</small>
           </article>
           <article class="card">
-            <p class="quote">"Ambalaj elegant, perfect pentru cadou. Exact ce cautam."</p>
-            <small>- Client Alin Gold</small>
+            <p class="quote" data-i18n="test.2.text">„Ambalaj elegant, perfect pentru cadou. Exact ceea ce căutam."</p>
+            <small data-i18n="test.2.author">– Client Alin Gold</small>
           </article>
         </div>
       </section>
 
       <section class="section">
-        <h2>Galerie</h2>
+        <h2 data-i18n="gallery.title">Galerie</h2>
         <div class="social-strip">
-          <img class="site-image" src="photos/insta.jpg" alt="Galerie bijuterii 1" loading="lazy" />
-          <img class="site-image" src="photos/insta2.jpg" alt="Galerie bijuterii 2" loading="lazy" />
-          <img class="site-image" src="photos/silver.jpg" alt="Galerie bijuterii 3" loading="lazy" />
-          <img class="site-image" src="photos/wow2.jpg" alt="Galerie bijuterii 4" loading="lazy" />
+          <img class="site-image" src="photos/insta.jpg" alt="Bijuterii Alin Gold" loading="lazy" />
+          <img class="site-image" src="photos/insta2.jpg" alt="Bijuterii Alin Gold" loading="lazy" />
+          <img class="site-image" src="photos/silver.jpg" alt="Bijuterii Alin Gold" loading="lazy" />
+          <img class="site-image" src="photos/wow2.jpg" alt="Bijuterii Alin Gold" loading="lazy" />
         </div>
       </section>
 
       <section class="section">
-        <h2>Aboneaza-te la noutati</h2>
-        <p>Primesti colectii noi, promotii private si idei de cadouri premium.</p>
+        <h2 data-i18n="nl.title">Abonați-vă la noutăți</h2>
+        <p data-i18n="nl.desc">Primiți colecții noi, oferte exclusive și idei de cadouri premium.</p>
         <form class="newsletter-form">
-          <input type="email" placeholder="Introdu email-ul tau" />
-          <button class="btn" type="button">Abonare</button>
+          <input type="email" data-i18n-ph="nl.placeholder" placeholder="Adresa dumneavoastră de e-mail" />
+          <button class="btn" type="button" data-i18n="nl.btn">Abonare</button>
         </form>
       </section>
 
       <section class="section faq">
-        <h2>Intrebari frecvente</h2>
+        <h2 data-i18n="faq.title">Întrebări frecvente</h2>
         <details>
-          <summary>Livrati in toata Moldova?</summary>
-          <p>Da, livram in toata Moldova in mod normal 1-3 zile lucratoare.</p>
+          <summary data-i18n="faq.1.q">Aveți showroom fizic?</summary>
+          <p data-i18n="faq.1.a">Da, ne găsiți la Bd. Dacia 49/8, Chișinău, de luni până sâmbătă.</p>
         </details>
         <details>
-          <summary>Pot schimba marimea inelului?</summary>
-          <p>Da, in functie de model, cu verificare prealabila.</p>
+          <summary data-i18n="faq.2.q">Pot ajusta dimensiunea unui inel?</summary>
+          <p data-i18n="faq.2.a">Da, în funcție de model, cu verificare prealabilă.</p>
         </details>
         <details>
-          <summary>Primesc certificat de autenticitate?</summary>
-          <p>Da, fiecare produs este insotit de documentele necesare.</p>
+          <summary data-i18n="faq.3.q">Primesc certificat de autenticitate?</summary>
+          <p data-i18n="faq.3.a">Da, fiecare produs este însoțit de documentele necesare.</p>
         </details>
       </section>
     </main>
+
     <footer>
       <div class="container topbar">
         <small>© <span data-year></span> Alin Gold</small>
         <nav>
-          <a href="termeni.html">Termeni</a>
-          <a href="confidentialitate.html">Confidentialitate</a>
-          <a href="retur.html">Retur</a>
+          <a href="termeni.html" data-i18n="footer.terms">Termeni</a>
+          <a href="confidentialitate.html" data-i18n="footer.privacy">Confidențialitate</a>
+          <a href="retur.html" data-i18n="footer.returns">Retur</a>
         </nav>
       </div>
     </footer>

@@ -3,53 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catalog - Alin Gold</title>
+    <title>Catalog – Alin Gold</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
-    <header><div class="container topbar"><a class="logo" href="index.html">ALIN GOLD</a><nav><a href="index.html">Home</a><a href="catalog.html" aria-current="page">Catalog</a><a href="despre.html">Despre</a><a href="contact.html">Contact</a></nav></div></header>
+    <header>
+      <div class="container topbar">
+        <a class="logo" href="index.html">ALIN GOLD</a>
+        <div class="nav-area" id="nav-area">
+          <nav>
+            <a href="index.html" data-i18n="nav.home">Acasă</a>
+            <a href="catalog.html" aria-current="page" data-i18n="nav.catalog">Catalog</a>
+            <a href="despre.html" data-i18n="nav.about">Despre</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          </nav>
+          <div class="lang-switch">
+            <button class="lang-btn active" data-lang="ro">RO</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Meniu" aria-expanded="false">&#9776;</button>
+      </div>
+    </header>
+
     <main class="container section" style="margin-top:22px;padding:20px;">
-      <h1>Catalog</h1>
+      <h1 data-i18n="catalog.title">Catalog</h1>
+
+      <div class="filter-bar">
+        <div class="filter-group">
+          <span class="filter-label" data-i18n="filter.cat.label">Categorie:</span>
+          <button class="filter-btn active" data-filter-cat="all" data-i18n="filter.all">Toate</button>
+          <button class="filter-btn" data-filter-cat="inele" data-i18n="cat.inele">Inele</button>
+          <button class="filter-btn" data-filter-cat="bratari" data-i18n="cat.bratari">Brățări</button>
+          <button class="filter-btn" data-filter-cat="lant" data-i18n="cat.lant">Lănțișoare</button>
+          <button class="filter-btn" data-filter-cat="cruci" data-i18n="cat.cruci">Cruci</button>
+          <button class="filter-btn" data-filter-cat="cercei" data-i18n="cat.cercei">Cercei</button>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label" data-i18n="filter.mat.label">Material:</span>
+          <button class="filter-btn active" data-filter-mat="all" data-i18n="filter.all">Toate</button>
+          <button class="filter-btn" data-filter-mat="aur" data-i18n="mat.aur">Aur</button>
+          <button class="filter-btn" data-filter-mat="argint" data-i18n="mat.argint">Argint</button>
+        </div>
+      </div>
+
       <div class="grid">
-        <article class="card">
-          <h3>Inel clasic</h3>
-          <img class="site-image" src="photos/goldring.jpg" alt="Inel clasic" loading="lazy" />
-          <p>Model elegant din aur pentru ocazii speciale.</p>
-          <a class="btn" href="produs.html">Detalii</a>
+
+        <article class="card product-card" data-cat="inele" data-mat="aur">
+          <span class="product-badge badge-aur" data-i18n="mat.aur">Aur</span>
+          <h3 data-i18n="p1.name">Inel din Aur</h3>
+          <img class="site-image" src="photos/goldring.jpg" alt="Inel din Aur" loading="lazy" />
+          <p data-i18n="p1.desc">Model elegant din aur 14k pentru ocazii speciale.</p>
+          <p class="product-price">1.890 MDL</p>
+          <a class="btn" href="produs.html" data-i18n="btn.details">Detalii</a>
         </article>
-        <article class="card">
-          <h3>Lant elegant</h3>
-          <img class="site-image" src="photos/goldcross.jpg" alt="Lant elegant" loading="lazy" />
-          <p>Lant fin cu design modern, perfect pentru purtare zilnica.</p>
-          <a class="btn" href="produs.html">Detalii</a>
+
+        <article class="card product-card" data-cat="cruci" data-mat="aur">
+          <span class="product-badge badge-aur" data-i18n="mat.aur">Aur</span>
+          <h3 data-i18n="p2.name">Cruce din Aur</h3>
+          <img class="site-image" src="photos/goldcross.jpg" alt="Cruce din Aur" loading="lazy" />
+          <p data-i18n="p2.desc">Design clasic, simbol al eleganței și al valorilor.</p>
+          <p class="product-price">1.450 MDL</p>
+          <a class="btn" href="produs.html" data-i18n="btn.details">Detalii</a>
         </article>
-        <article class="card">
-          <h3>Bratara fina</h3>
-          <img class="site-image" src="photos/love bracelet.jpg" alt="Bratara fina" loading="lazy" />
-          <p>Bratara eleganta, un cadou perfect pentru cei dragi.</p>
-          <a class="btn" href="produs.html">Detalii</a>
+
+        <article class="card product-card" data-cat="bratari" data-mat="aur">
+          <span class="product-badge badge-aur" data-i18n="mat.aur">Aur</span>
+          <h3 data-i18n="p3.name">Brățară Love</h3>
+          <img class="site-image" src="photos/love bracelet.jpg" alt="Brățară Love" loading="lazy" />
+          <p data-i18n="p3.desc">Piesă iconică cu simbol al dragostei, pentru momente speciale.</p>
+          <p class="product-price">2.100 MDL</p>
+          <a class="btn" href="produs.html" data-i18n="btn.details">Detalii</a>
         </article>
-        <article class="card">
-          <h3>Cercei Royal</h3>
-          <img class="site-image" src="photos/cercei.jpg" alt="Cercei Royal" loading="lazy" />
-          <p>Stil premium inspirat din colectiile luxury internationale.</p>
-          <a class="btn" href="produs.html">Detalii</a>
+
+        <article class="card product-card" data-cat="cercei" data-mat="aur">
+          <span class="product-badge badge-aur" data-i18n="mat.aur">Aur</span>
+          <h3 data-i18n="p4.name">Cercei din Aur</h3>
+          <img class="site-image" src="photos/cercei.jpg" alt="Cercei din Aur" loading="lazy" />
+          <p data-i18n="p4.desc">Stil premium inspirat din colecțiile luxury internaționale.</p>
+          <p class="product-price">1.650 MDL</p>
+          <a class="btn" href="produs.html" data-i18n="btn.details">Detalii</a>
         </article>
-        <article class="card">
-          <h3>Bratara argint</h3>
-          <img class="site-image" src="photos/silver.jpg" alt="Bratara argint" loading="lazy" />
-          <p>Bijuterie din argint 925 cu finisaj premium.</p>
-          <a class="btn" href="produs.html">Detalii</a>
+
+        <article class="card product-card" data-cat="bratari" data-mat="argint">
+          <span class="product-badge badge-argint" data-i18n="mat.argint">Argint</span>
+          <h3 data-i18n="p5.name">Brățară din Argint</h3>
+          <img class="site-image" src="photos/silver.jpg" alt="Brățară din Argint" loading="lazy" />
+          <p data-i18n="p5.desc">Bijuterie din argint 925 cu finisaj impecabil.</p>
+          <p class="product-price">890 MDL</p>
+          <a class="btn" href="produs.html" data-i18n="btn.details">Detalii</a>
         </article>
-        <article class="card">
-          <h3>Bratara Love</h3>
-          <img class="site-image" src="photos/goldbracelet.jpg" alt="Bratara Love" loading="lazy" />
-          <p>Design iconic, o piesa de colectie cu valoare sentimentala.</p>
-          <a class="btn" href="produs.html">Detalii</a>
+
+        <article class="card product-card" data-cat="bratari" data-mat="aur">
+          <span class="product-badge badge-aur" data-i18n="mat.aur">Aur</span>
+          <h3 data-i18n="p6.name">Brățară din Aur</h3>
+          <img class="site-image" src="photos/goldbracelet.jpg" alt="Brățară din Aur" loading="lazy" />
+          <p data-i18n="p6.desc">Design sofisticat, purtare confortabilă pentru orice ocazie.</p>
+          <p class="product-price">2.450 MDL</p>
+          <a class="btn" href="produs.html" data-i18n="btn.details">Detalii</a>
         </article>
+
+        <article class="card product-card" data-cat="lant" data-mat="aur">
+          <span class="product-badge badge-aur" data-i18n="mat.aur">Aur</span>
+          <h3 data-i18n="p7.name">Lănțișor din Aur</h3>
+          <img class="site-image" src="photos/insta.jpg" alt="Lănțișor din Aur" loading="lazy" />
+          <p data-i18n="p7.desc">Lanț fin cu design elegant, ideal pentru purtare zilnică.</p>
+          <p class="product-price">1.750 MDL</p>
+          <a class="btn" href="produs.html" data-i18n="btn.details">Detalii</a>
+        </article>
+
+        <article class="card product-card" data-cat="inele" data-mat="argint">
+          <span class="product-badge badge-argint" data-i18n="mat.argint">Argint</span>
+          <h3 data-i18n="p8.name">Inel din Argint</h3>
+          <img class="site-image" src="photos/insta2.jpg" alt="Inel din Argint" loading="lazy" />
+          <p data-i18n="p8.desc">Inel modern din argint 925, minimalist și rafinat.</p>
+          <p class="product-price">750 MDL</p>
+          <a class="btn" href="produs.html" data-i18n="btn.details">Detalii</a>
+        </article>
+
+        <article class="card product-card" data-cat="lant" data-mat="aur">
+          <span class="product-badge badge-aur" data-i18n="mat.aur">Aur</span>
+          <h3 data-i18n="p9.name">Colier din Aur</h3>
+          <img class="site-image" src="photos/wow.jpg" alt="Colier din Aur" loading="lazy" />
+          <p data-i18n="p9.desc">Piesă de efect pentru ocazii deosebite, din aur de înaltă calitate.</p>
+          <p class="product-price">3.200 MDL</p>
+          <a class="btn" href="produs.html" data-i18n="btn.details">Detalii</a>
+        </article>
+
       </div>
     </main>
-    <footer><div class="container topbar"><small>© <span data-year></span> Alin Gold</small><nav><a href="termeni.html">Termeni</a><a href="confidentialitate.html">Confidentialitate</a><a href="retur.html">Retur</a></nav></div></footer>
+
+    <footer>
+      <div class="container topbar">
+        <small>© <span data-year></span> Alin Gold</small>
+        <nav>
+          <a href="termeni.html" data-i18n="footer.terms">Termeni</a>
+          <a href="confidentialitate.html" data-i18n="footer.privacy">Confidențialitate</a>
+          <a href="retur.html" data-i18n="footer.returns">Retur</a>
+        </nav>
+      </div>
+    </footer>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

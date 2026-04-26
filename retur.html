@@ -3,16 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Politica de retur - Alin Gold</title>
+    <title>Politica de retur – Alin Gold</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
-    <header><div class="container topbar"><a class="logo" href="index.html">ALIN GOLD</a><nav><a href="index.html">Home</a><a href="catalog.html">Catalog</a><a href="despre.html">Despre</a><a href="contact.html">Contact</a></nav></div></header>
-    <main class="container section" style="margin-top:22px;padding:20px;">
+    <header>
+      <div class="container topbar">
+        <a class="logo" href="index.html">ALIN GOLD</a>
+        <div class="nav-area" id="nav-area">
+          <nav>
+            <a href="index.html" data-i18n="nav.home">Acasă</a>
+            <a href="catalog.html" data-i18n="nav.catalog">Catalog</a>
+            <a href="despre.html" data-i18n="nav.about">Despre</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          </nav>
+          <div class="lang-switch">
+            <button class="lang-btn active" data-lang="ro">RO</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Meniu" aria-expanded="false">&#9776;</button>
+      </div>
+    </header>
+    <main class="container section" style="margin-top:22px;padding:24px;">
       <h1>Politica de retur</h1>
-      <p>Continut legal placeholder pentru MVP.</p>
+      <p>Conținut legal în curs de elaborare. Vă mulțumim pentru înțelegere.</p>
     </main>
-    <footer><div class="container topbar"><small>© <span data-year></span> Alin Gold</small></div></footer>
+    <footer>
+      <div class="container topbar">
+        <small>© <span data-year></span> Alin Gold</small>
+        <nav>
+          <a href="termeni.html" data-i18n="footer.terms">Termeni</a>
+          <a href="confidentialitate.html" data-i18n="footer.privacy">Confidențialitate</a>
+          <a href="retur.html" data-i18n="footer.returns">Retur</a>
+        </nav>
+      </div>
+    </footer>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

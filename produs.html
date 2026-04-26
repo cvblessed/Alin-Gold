@@ -3,19 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Produs - Alin Gold</title>
+    <title>Produs – Alin Gold</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
-    <header><div class="container topbar"><a class="logo" href="index.html">ALIN GOLD</a><nav><a href="index.html">Home</a><a href="catalog.html">Catalog</a><a href="despre.html">Despre</a><a href="contact.html">Contact</a></nav></div></header>
-    <main class="container section" style="margin-top:22px;padding:20px;">
-      <h1>Inel clasic</h1>
-      <img class="site-image" src="photos/goldring.jpg" alt="Inel clasic" loading="lazy" />
-      <p>Bijuterie din aur de 14 karate cu design clasic si elegant. Disponibil in mai multe marimi. Fiecare piesa este insotita de certificat de autenticitate.</p>
-      <p>Pentru informatii suplimentare sau pentru a solicita o piesa, <a class="contact-link" href="contact.html">contactati-ne</a>.</p>
-      <a class="btn" href="contact.html">Solicita informatii</a>
+    <header>
+      <div class="container topbar">
+        <a class="logo" href="index.html">ALIN GOLD</a>
+        <div class="nav-area" id="nav-area">
+          <nav>
+            <a href="index.html" data-i18n="nav.home">Acasă</a>
+            <a href="catalog.html" data-i18n="nav.catalog">Catalog</a>
+            <a href="despre.html" data-i18n="nav.about">Despre</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          </nav>
+          <div class="lang-switch">
+            <button class="lang-btn active" data-lang="ro">RO</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Meniu" aria-expanded="false">&#9776;</button>
+      </div>
+    </header>
+    <main class="container section" style="margin-top:22px;padding:24px;">
+      <h1>Inel din Aur</h1>
+      <span class="product-badge badge-aur">Aur</span>
+      <img class="site-image" src="photos/goldring.jpg" alt="Inel din Aur" loading="lazy" />
+      <p class="product-price">1.890 MDL</p>
+      <p>Bijuterie din aur de 14 karate cu design clasic și elegant. Disponibilă în mai multe mărimi. Fiecare piesă este însoțită de certificat de autenticitate.</p>
+      <p>Pentru informații suplimentare sau pentru a solicita o piesă, <a class="contact-link" href="contact.html">contactați-ne</a>.</p>
+      <a class="btn" href="contact.html">Solicită informații</a>
     </main>
-    <footer><div class="container topbar"><small>© <span data-year></span> Alin Gold</small><nav><a href="termeni.html">Termeni</a><a href="confidentialitate.html">Confidentialitate</a><a href="retur.html">Retur</a></nav></div></footer>
+    <footer>
+      <div class="container topbar">
+        <small>© <span data-year></span> Alin Gold</small>
+        <nav>
+          <a href="termeni.html" data-i18n="footer.terms">Termeni</a>
+          <a href="confidentialitate.html" data-i18n="footer.privacy">Confidențialitate</a>
+          <a href="retur.html" data-i18n="footer.returns">Retur</a>
+        </nav>
+      </div>
+    </footer>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

@@ -3,54 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact - Alin Gold</title>
+    <title>Contact – Alin Gold</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
-    <header><div class="container topbar"><a class="logo" href="index.html">ALIN GOLD</a><nav><a href="index.html">Home</a><a href="catalog.html">Catalog</a><a href="despre.html">Despre</a><a href="contact.html" aria-current="page">Contact</a></nav></div></header>
-    <main class="container section contact-layout">
+    <header>
+      <div class="container topbar">
+        <a class="logo" href="index.html">ALIN GOLD</a>
+        <div class="nav-area" id="nav-area">
+          <nav>
+            <a href="index.html" data-i18n="nav.home">Acasă</a>
+            <a href="catalog.html" data-i18n="nav.catalog">Catalog</a>
+            <a href="despre.html" data-i18n="nav.about">Despre</a>
+            <a href="contact.html" aria-current="page" data-i18n="nav.contact">Contact</a>
+          </nav>
+          <div class="lang-switch">
+            <button class="lang-btn active" data-lang="ro">RO</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Meniu" aria-expanded="false">&#9776;</button>
+      </div>
+    </header>
+
+    <main class="container section contact-layout" style="margin-top:22px;">
       <section class="card contact-info">
-        <h1>Contact</h1>
+        <h1 data-i18n="contact.title">Contact</h1>
         <p>Email: <a class="contact-link" href="mailto:alingoldsrl@gmail.com">alingoldsrl@gmail.com</a></p>
         <p>Telefon: <a class="contact-link" href="tel:060068707">0600 68 707</a></p>
-        <p>Adresa showroom: Bd. Dacia 49/8, Chisinau, Moldova</p>
-        <label for="work-schedule">Program de lucru</label>
+        <p>Adresă: Bd. Dacia 49/8, Chișinău, Moldova</p>
+        <label for="work-schedule" data-i18n="contact.schedule">Program de lucru</label>
         <select id="work-schedule" name="workSchedule" aria-label="Program de lucru Alin Gold">
-          <option>Monday - 9:00 AM - 5:30 PM</option>
-          <option>Tuesday - 9:00 AM - 6:00 PM</option>
-          <option>Wednesday - 9:00 AM - 6:00 PM</option>
-          <option>Thursday - 9:00 AM - 6:00 PM</option>
-          <option>Friday - 9:00 AM - 6:00 PM</option>
-          <option>Saturday - 9:00 AM - 1:30 PM</option>
-          <option>Sunday - CLOSED</option>
+          <option>Luni – 09:00–17:30</option>
+          <option>Marți – 09:00–18:00</option>
+          <option>Miercuri – 09:00–18:00</option>
+          <option>Joi – 09:00–18:00</option>
+          <option>Vineri – 09:00–18:00</option>
+          <option>Sâmbătă – 09:00–13:30</option>
+          <option>Duminică – Închis</option>
         </select>
       </section>
+
       <section class="card">
-        <h2>Trimite-ne un mesaj</h2>
+        <h2 data-i18n="contact.form.title">Trimiteți-ne un mesaj</h2>
         <form id="contact-form" class="form-card">
           <div class="form-grid">
-            <label>Prenume
+            <label><span data-i18n="contact.form.fname">Prenume</span>
               <input type="text" name="firstName" required />
             </label>
-            <label>Nume
+            <label><span data-i18n="contact.form.lname">Nume</span>
               <input type="text" name="lastName" required />
             </label>
-            <label>Email
+            <label><span data-i18n="contact.form.email">E-mail</span>
               <input type="email" name="email" required />
             </label>
-            <label>Telefon
+            <label><span data-i18n="contact.form.phone">Telefon</span>
               <input type="tel" name="phone" required />
             </label>
           </div>
-          <label>Mesaj
-            <textarea name="message" rows="4" required placeholder="Scrie aici intrebarea sau cererea ta"></textarea>
+          <label><span data-i18n="contact.form.msg">Mesaj</span>
+            <textarea name="message" rows="4" required data-i18n-ph="contact.form.placeholder" placeholder="Scrieți aici întrebarea sau solicitarea dumneavoastră"></textarea>
           </label>
           <p id="contact-form-message" class="form-error" aria-live="polite"></p>
-          <button class="btn" type="submit">Trimite mesaj</button>
+          <button class="btn" type="submit" data-i18n="contact.form.submit">Trimite mesajul</button>
         </form>
       </section>
     </main>
-    <footer><div class="container topbar"><small>© <span data-year></span> Alin Gold</small><nav><a href="termeni.html">Termeni</a><a href="confidentialitate.html">Confidentialitate</a><a href="retur.html">Retur</a></nav></div></footer>
+
+    <footer>
+      <div class="container topbar">
+        <small>© <span data-year></span> Alin Gold</small>
+        <nav>
+          <a href="termeni.html" data-i18n="footer.terms">Termeni</a>
+          <a href="confidentialitate.html" data-i18n="footer.privacy">Confidențialitate</a>
+          <a href="retur.html" data-i18n="footer.returns">Retur</a>
+        </nav>
+      </div>
+    </footer>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
