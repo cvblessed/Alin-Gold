@@ -94,10 +94,11 @@ const LANGS = {
     "p6.desc": "Design sofisticat, purtare confortabilă pentru orice ocazie.",
     "p7.name": "Lănțișor din Aur",
     "p7.desc": "Lant fin cu design elegant, ideal pentru purtare zilnică.",
-    "p8.name": "Inel din Argint",
-    "p8.desc": "Inel modern din argint 925, minimalist și rafinat.",
-    "p9.name": "Colier din Aur",
-    "p9.desc": "Piesă de efect pentru ocazii deosebite, din aur de înaltă calitate.",
+    "p8.name": "Inel Statement din Aur",
+    "p8.desc": "Inel cu design distinctiv, din aur de înaltă calitate.",
+    "p9.name": "Cruce Premium din Aur",
+    "p9.desc": "Piesă de efect cu design rafinat, din aur de înaltă calitate.",
+    "modal.cta": "Solicită informații",
     "cookie.text": "Acest site utilizează cookie-uri pentru funcționare și îmbunătățirea experienței dumneavoastră.",
     "cookie.accept": "Accept cookie-uri",
     "cookie.decline": "Refuz opționalele"
@@ -196,10 +197,11 @@ const LANGS = {
     "p6.desc": "Изысканный дизайн, удобная носка для любого случая.",
     "p7.name": "Золотая цепочка",
     "p7.desc": "Тонкая цепочка элегантного дизайна для повседневного ношения.",
-    "p8.name": "Серебряное кольцо",
-    "p8.desc": "Современное кольцо из серебра 925, минималистичное и изысканное.",
-    "p9.name": "Золотое ожерелье",
-    "p9.desc": "Эффектное украшение для особых случаев из высококачественного золота.",
+    "p8.name": "Кольцо Statement из Золота",
+    "p8.desc": "Кольцо с выразительным дизайном из высококачественного золота.",
+    "p9.name": "Премиум-крест из Золота",
+    "p9.desc": "Эффектное изделие изысканного дизайна из высококачественного золота.",
+    "modal.cta": "Запросить информацию",
     "cookie.text": "Этот сайт использует файлы cookie для работы и улучшения вашего опыта.",
     "cookie.accept": "Принять cookies",
     "cookie.decline": "Отказаться"
@@ -298,10 +300,11 @@ const LANGS = {
     "p6.desc": "Sophisticated design, comfortable wear for any occasion.",
     "p7.name": "Gold Necklace",
     "p7.desc": "Fine chain with elegant design, ideal for everyday wear.",
-    "p8.name": "Silver Ring",
-    "p8.desc": "Modern 925 silver ring, minimalist and refined.",
-    "p9.name": "Gold Collar",
-    "p9.desc": "A statement piece for special occasions, crafted from high-quality gold.",
+    "p8.name": "Statement Gold Ring",
+    "p8.desc": "Ring with a distinctive design, crafted from high-quality gold.",
+    "p9.name": "Premium Gold Cross",
+    "p9.desc": "A statement piece with refined design, crafted from high-quality gold.",
+    "modal.cta": "Request information",
     "cookie.text": "This website uses cookies for functionality and to improve your experience.",
     "cookie.accept": "Accept cookies",
     "cookie.decline": "Decline optional"
@@ -321,6 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initRevealAnimations();
   initCookieBanner();
   initCatalogFilter();
+  initProductModal();
   initContactForm();
 });
 
@@ -458,6 +462,62 @@ function initCatalogFilter() {
       card.classList.toggle("is-hidden", !(catMatch && matMatch));
     });
   });
+}
+
+/* ── Product modal ───────────────────────────────────────────────────────── */
+function initProductModal() {
+  const modal = document.getElementById("product-modal");
+  if (!modal) return;
+
+  const backdrop = document.getElementById("modal-backdrop");
+  const closeBtn = document.getElementById("modal-close");
+  const modalTitle = document.getElementById("modal-title");
+  const modalImage = document.getElementById("modal-image");
+  const modalPrice = document.getElementById("modal-price");
+  const modalDesc  = document.getElementById("modal-desc");
+  const modalBadge = document.getElementById("modal-badge");
+
+  function openModal(card) {
+    const name  = card.querySelector("h3")?.textContent || "";
+    const img   = card.querySelector("img");
+    const price = card.querySelector(".product-price")?.textContent || "";
+    const desc  = card.querySelector("p:not(.product-price)")?.textContent || "";
+    const badge = card.querySelector(".product-badge");
+
+    modalTitle.textContent = name;
+    modalImage.src = img?.src || "";
+    modalImage.alt = img?.alt || name;
+    modalPrice.textContent = price;
+    modalDesc.textContent  = desc;
+
+    if (badge) {
+      modalBadge.textContent = badge.textContent;
+      modalBadge.className   = badge.className;
+    } else {
+      modalBadge.textContent = "";
+      modalBadge.className   = "product-badge";
+    }
+
+    modal.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".product-card [data-open-product]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".product-card");
+      if (card) openModal(card);
+    });
+  });
+
+  closeBtn?.addEventListener("click", closeModal);
+  backdrop?.addEventListener("click", closeModal);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 }
 
 /* ── Contact form ────────────────────────────────────────────────────────── */
