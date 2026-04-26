@@ -134,6 +134,10 @@ nav a[aria-current="page"] {
   box-shadow: 0 14px 26px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.2) inset;
 }
 
+.hero-image {
+  height: 380px;
+}
+
 .grid {
   display: grid;
   gap: 16px;
@@ -229,17 +233,6 @@ nav a[aria-current="page"] {
   transform: translateY(0);
 }
 
-.btn:disabled,
-.btn.is-disabled {
-  opacity: 0.45;
-  pointer-events: none;
-}
-
-.btn-block {
-  width: 100%;
-  text-align: center;
-}
-
 .btn-outline {
   background: transparent;
   border: 1px solid var(--accent);
@@ -250,74 +243,18 @@ nav a[aria-current="page"] {
   background: rgba(212, 175, 55, 0.14);
 }
 
-.page-intro {
-  color: var(--muted);
-  margin-bottom: 18px;
-}
-
-.stack {
-  display: grid;
-  gap: 12px;
-}
-
-.stack.compact {
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.cart-layout,
-.checkout-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 20px;
-}
-
-.summary-card {
-  height: fit-content;
-  position: sticky;
-  top: 16px;
-}
-
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.summary-row.total {
-  border-top: 1px solid var(--border);
-  padding-top: 10px;
-  margin-top: 8px;
-}
-
-.cart-item-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-}
-
-.qty-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.qty-controls button {
-  min-width: 34px;
-  border: 1px solid var(--border);
-  background: #1b1b1b;
+/* Contact info links (email, telefon) */
+.contact-link {
   color: var(--text);
-  border-radius: 6px;
-  padding: 6px 8px;
-  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
-.qty-controls button.danger {
-  border-color: #8d2c2c;
-  color: #f0aaaa;
+.contact-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  opacity: 0.9;
 }
 
 .form-card {
@@ -356,15 +293,9 @@ textarea:focus {
   outline-offset: 1px;
 }
 
-.payment-options {
-  display: grid;
-  gap: 8px;
-}
-
-.payment-options label {
-  display: flex;
-  gap: 8px;
-  align-items: center;
+#contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
 .form-error {
@@ -420,27 +351,17 @@ textarea:focus {
   margin: 10px 0;
 }
 
-#contact-form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
 @media (max-width: 900px) {
-  .cart-layout,
-  .checkout-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .summary-card {
-    position: static;
-  }
-
   .form-grid {
     grid-template-columns: 1fr;
   }
 
   .contact-layout {
     grid-template-columns: 1fr;
+  }
+
+  .hero-image {
+    height: 220px;
   }
 }
 
