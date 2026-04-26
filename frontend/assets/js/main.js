@@ -38,6 +38,19 @@ function calcSubtotal(items) {
   return items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 }
 
+function resolveImageSrc(imageName) {
+  if (!imageName) return "";
+  if (imageName.startsWith("http://") || imageName.startsWith("https://") || imageName.startsWith("../")) {
+    return imageName;
+  }
+  return `../photos/${encodeURIComponent(imageName)}`;
+}
+
+function getShippingPrice(deliveryMethod) {
+  if (deliveryMethod === "pickup") return 0;
+  return SHIPPING_PRICE;
+}
+
 function upsertItem(product) {
   const cart = readCart();
   const existing = cart.find((item) => item.id === product.id);
@@ -67,9 +80,9 @@ function initCartActions() {
   });
 }
 
-function updateSummary(prefix, items) {
+function updateSummary(prefix, items, shippingPrice) {
   const subtotal = calcSubtotal(items);
-  const shipping = items.length ? SHIPPING_PRICE : 0;
+  const shipping = items.length ? shippingPrice : 0;
   const total = subtotal + shipping;
   const subtotalEl = document.getElementById(`${prefix}-subtotal`);
   const shippingEl = document.getElementById(`${prefix}-shipping`);
@@ -91,7 +104,7 @@ function renderCartPage() {
   if (!cart.length) {
     if (emptyNode) emptyNode.style.display = "block";
     if (checkoutBtn) checkoutBtn.classList.add("is-disabled");
-    updateSummary("cart", cart);
+    updateSummary("cart", cart, SHIPPING_PRICE);
     return;
   }
 
@@ -101,12 +114,13 @@ function renderCartPage() {
   cart.forEach((item) => {
     const row = document.createElement("article");
     row.className = "card cart-item";
+    const imageSrc = resolveImageSrc(item.image);
     row.innerHTML = `
       <div class="cart-item-head">
         <h3>${item.name}</h3>
         <strong>${formatPrice(item.price * item.quantity)}</strong>
       </div>
-      <p>Imagine: ${item.image}</p>
+      ${imageSrc ? `<img class="site-image" src="${imageSrc}" alt="${item.name}" loading="lazy" />` : ""}
       <div class="qty-controls">
         <button type="button" data-action="decrease">-</button>
         <span>${item.quantity}</span>
@@ -132,7 +146,7 @@ function renderCartPage() {
     container.appendChild(row);
   });
 
-  updateSummary("cart", cart);
+  updateSummary("cart", cart, SHIPPING_PRICE);
 }
 
 function renderCheckoutPage() {
@@ -143,6 +157,15 @@ function renderCheckoutPage() {
   const errorEl = document.getElementById("checkout-error");
   const submitBtn = document.getElementById("checkout-submit");
   const list = document.getElementById("checkout-items");
+  const deliveryRadios = document.querySelectorAll("input[name='deliveryMethod']");
+  const getSelectedDelivery = () => {
+    const selected = document.querySelector("input[name='deliveryMethod']:checked");
+    if (!(selected instanceof HTMLInputElement)) return "courier";
+    return selected.value;
+  };
+  const refreshCheckoutSummary = () => {
+    updateSummary("checkout", cart, getShippingPrice(getSelectedDelivery()));
+  };
 
   if (!cart.length) {
     if (errorEl) errorEl.textContent = "Cosul este gol. Adauga produse inainte de checkout.";
@@ -152,7 +175,10 @@ function renderCheckoutPage() {
   if (list) {
     list.innerHTML = cart.map((item) => `<div class="summary-row"><span>${item.name} x${item.quantity}</span><strong>${formatPrice(item.price * item.quantity)}</strong></div>`).join("");
   }
-  updateSummary("checkout", cart);
+  refreshCheckoutSummary();
+  deliveryRadios.forEach((radio) => {
+    radio.addEventListener("change", refreshCheckoutSummary);
+  });
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -171,13 +197,15 @@ function renderCheckoutPage() {
         postalCode: String(formData.get("postalCode") || "").trim()
       },
       paymentMethod: String(formData.get("paymentMethod") || "").trim(),
+      deliveryMethod: String(formData.get("deliveryMethod") || "").trim(),
+      termsAccepted: formData.get("termsAccepted") === "on",
       notes: String(formData.get("notes") || "").trim(),
       items: cart
     };
 
-    const invalid = !payload.customer.firstName || !payload.customer.lastName || !payload.customer.email || !payload.customer.phone || !payload.address.city || !payload.address.street || !payload.address.streetNumber || !payload.paymentMethod || !payload.items.length;
+    const invalid = !payload.customer.firstName || !payload.customer.lastName || !payload.customer.email || !payload.customer.phone || !payload.address.city || !payload.address.street || !payload.address.streetNumber || !payload.paymentMethod || !payload.deliveryMethod || !payload.termsAccepted || !payload.items.length;
     if (invalid) {
-      if (errorEl) errorEl.textContent = "Completeaza toate campurile obligatorii.";
+      if (errorEl) errorEl.textContent = "Completeaza toate campurile obligatorii si accepta termenii.";
       return;
     }
 

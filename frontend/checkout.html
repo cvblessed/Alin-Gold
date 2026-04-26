@@ -48,10 +48,17 @@
             <label><input type="radio" name="paymentMethod" value="cash" required /> Cash la livrare</label>
             <label><input type="radio" name="paymentMethod" value="card" /> Card la livrare</label>
             <label><input type="radio" name="paymentMethod" value="transfer" /> Transfer bancar</label>
+            <label><input type="radio" name="paymentMethod" value="online_card" /> Plata online cu cardul</label>
+          </div>
+          <h3>Livrare</h3>
+          <div class="payment-options">
+            <label><input type="radio" name="deliveryMethod" value="courier" required checked /> Curier rapid (70 MDL)</label>
+            <label><input type="radio" name="deliveryMethod" value="pickup" /> Ridicare personala (0 MDL)</label>
           </div>
           <label>Observatii
             <textarea name="notes" rows="3" placeholder="Detalii suplimentare pentru livrare"></textarea>
           </label>
+          <label><input type="checkbox" name="termsAccepted" required /> Am citit si sunt de acord cu termenii si conditiile.</label>
           <p id="checkout-error" class="form-error" aria-live="polite"></p>
           <button class="btn" id="checkout-submit" type="submit">Trimite comanda</button>
         </form>
